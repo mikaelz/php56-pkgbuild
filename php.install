@@ -1,0 +1,19 @@
+post_install() {
+	if [[ ! -d run/php-fpm ]]; then
+		usr/bin/systemd-tmpfiles --create /opt/php56/usr/lib/tmpfiles.d/php56-fpm.conf
+	fi
+	
+	ln -s /opt/php56/etc/php/ /etc/php56
+}
+
+pre_upgrage() {
+    unlink /etc/php56
+}
+
+post_upgrade() {
+	post_install
+}
+
+post_uninstall() {
+    unlink /etc/php56
+}
