@@ -6,7 +6,7 @@ post_install() {
 	ln -s /opt/php56/etc/php/ /etc/php56
 }
 
-pre_upgrage() {
+pre_upgrade() {
     unlink /etc/php56
 }
 
